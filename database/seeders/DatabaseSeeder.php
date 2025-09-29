@@ -2,6 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Address;
+use App\Models\Category;
+use App\Models\Post;
+use App\Models\Profile;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,9 +19,20 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        User::factory()->count(10)->create()->each(function($user){
+            $profile = Profile::factory(['user_id' => $user->id])->make();
+            $user->profile()->save($profile);
+            $profile->address()->save(Address::factory()->make());
+        });
+        Category::create([
+            'name' => 'Tech'
         ]);
+        Category::create([
+            'name' => 'Health'
+        ]);
+        Category::create([
+            'name' => 'Travel'
+        ]);
+        Post::factory()->count(15)->create();
     }
 }

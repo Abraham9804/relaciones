@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Category;
+use App\Models\Post;
 use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -9,9 +11,12 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function(){
-   $user = User::find(5);
-    return $user->profile;
+    /*$user = User::find(5);
+    return $user->profile;*/
 
     /*$profile = Profile::find(1);
     return $profile->user;*/
+
+    $post = Post::find(1);
+    return $post->category;
 });

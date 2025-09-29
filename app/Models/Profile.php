@@ -22,5 +22,10 @@ class Profile extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    public function address()
+    {
+        return $this->hasOne(Address::class);
+    }
    
 }
