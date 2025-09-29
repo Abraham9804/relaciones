@@ -19,11 +19,14 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->count(10)->create()->each(function($user){
-            $profile = Profile::factory(['user_id' => $user->id])->make();
-            $user->profile()->save($profile);
-            $profile->address()->save(Address::factory()->make());
-        });
+        User::factory()
+        ->count(10)
+        ->has(
+            Profile::factory()->has(
+                Address::factory()
+            )
+        )
+        ->create();
         Category::create([
             'name' => 'Tech'
         ]);
