@@ -50,4 +50,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Profile::class, 'user_id', 'id');
     }
+
+    public function address()
+    {
+        return $this->hasOneThrough(Address::class, Profile::class, 'user_id','profile_id','id','id');
+    }
 }

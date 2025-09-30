@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Category;
+use App\Models\Course;
 use App\Models\Post;
 use App\Models\Profile;
 use App\Models\User;
@@ -17,6 +18,6 @@ Route::get('/test', function(){
     /*$profile = Profile::find(1);
     return $profile->user;*/
 
-    $post = Post::find(1);
-    return $post->category;
+    $course = Course::find(1);
+    return $course->lessons;
 });
