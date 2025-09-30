@@ -9,6 +9,7 @@ use App\Models\Lesson;
 use App\Models\Post;
 use App\Models\Profile;
 use App\Models\Section;
+use App\Models\Tag;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -51,5 +52,7 @@ class DatabaseSeeder extends Seeder
                 ->count(5)
             )
         )->create();
+
+        Tag::factory()->count(10)->create();
     }
 }
