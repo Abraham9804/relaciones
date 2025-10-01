@@ -31,6 +31,13 @@ Route::get('/test', function(){
     /*$tag = Tag::find(1);
     return $tag->posts;*/
 
-    $book = Book::find(1);
-    return $book;
+    /*$book = Book::find(1);
+    return $book;*/
+    $post = Post::find(1);
+    //$post->coments()->create(['body' => 'Este es el comentario 3 del post']);
+    //return $post->coments;
+
+    foreach($post->coments as $coment){
+        echo $coment->body."<br>";
+    }
 });
