@@ -14,16 +14,16 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function(){
-    /*$user = User::find(5);
+    /*$user = User::find(5); retornamos la relacion 1 a 1
     return $user->profile;*/
 
     /*$profile = Profile::find(1);
     return $profile->user;*/
 
-    /*$course = Course::find(1);
+    /*$course = Course::find(1); retornamos la relacion 1 a muchos
     return $course->lessons;*/
 
-    /*$post = Post::find(1);
+    /*$post = Post::find(1); 
     return $post->image;*/
 
     //return $post->tags;
