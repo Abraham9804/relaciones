@@ -3,8 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\Address;
+use App\Models\Book;
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\Image;
 use App\Models\Lesson;
 use App\Models\Post;
 use App\Models\Profile;
@@ -29,8 +31,8 @@ class DatabaseSeeder extends Seeder
             Profile::factory()->has(
                 Address::factory()
             )
-        )
-        ->create();
+        )->create();
+
         Category::create([
             'name' => 'Tech'
         ]);
@@ -40,7 +42,13 @@ class DatabaseSeeder extends Seeder
         Category::create([
             'name' => 'Travel'
         ]);
-        Post::factory()->count(15)->create();
+
+        Post::factory()->count(15)
+        ->has(
+            Image::factory([
+                'url' => 'url_image.jpg'
+            ])->count(1)
+        )->create();
 
         Course::factory()
         ->count(5)
@@ -54,5 +62,13 @@ class DatabaseSeeder extends Seeder
         )->create();
 
         Tag::factory()->count(10)->create();
+
+        Book::factory()->count(10)
+        ->has(
+            Image::factory([
+                'url' => 'url_image.jpg'
+            ])->count(1)
+        )
+        ->create();
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Book;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\Post;
@@ -22,18 +23,14 @@ Route::get('/test', function(){
     /*$course = Course::find(1);
     return $course->lessons;*/
 
-    $post = Post::find(1);
-    /*$post->tags()->attach([
-        1 => ['data' => 'relacion muchos a muchos'],
-        2 => ['data' => 'relacion muchos a muchos'],
-        3 => ['data' => 'relacion muchos a muchos'],
-    ]);*/
-    foreach($post->tags as $tag){
-        echo $tag->name.' '.$tag->pivot->tag_id.'<br>';
-    }
+    /*$post = Post::find(1);
+    return $post->image;*/
 
     //return $post->tags;
 
     /*$tag = Tag::find(1);
     return $tag->posts;*/
+
+    $book = Book::find(1);
+    return $book;
 });
