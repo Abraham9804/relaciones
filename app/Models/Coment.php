@@ -12,5 +12,4 @@ class Coment extends Model
     {
         return $this->morphTo();
     }
-
 }
