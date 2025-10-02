@@ -14,4 +14,10 @@ class Book extends Model
     {
         return $this->morphOne(Image::class, 'imageable');
     }
+
+    //Relacion muchos a muchos polimorfica
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable')->withTimestamps();
+    }
 }

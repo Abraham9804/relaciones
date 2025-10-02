@@ -37,7 +37,12 @@ Route::get('/test', function(){
     //$post->coments()->create(['body' => 'Este es el comentario 3 del post']);
     //return $post->coments;
 
-    foreach($post->coments as $coment){
+    /*foreach($post->coments as $coment){
         echo $coment->body."<br>";
-    }
+    }*/
+    //$post->tags()->attach([1,2,2]);
+    $book = Book::find(1);
+    $book->tags()->sync([4,5]);
+    return $book->tags;
+
 });
