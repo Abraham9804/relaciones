@@ -14,4 +14,9 @@ class Lesson extends Model
     {
         return $this->belongsTo(Section::class, 'section_id', 'id');
     }
+
+    public function comments()
+    {
+        return $this->morphMany(Coment::class, 'comentable');
+    }
 }

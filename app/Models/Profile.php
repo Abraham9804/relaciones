@@ -10,11 +10,8 @@ class Profile extends Model
     use HasFactory;
     protected $fillable = [
         'job',
-        'address',
         'phone',
         'website',
-        'city',
-        'country',
         'user_id',
     ];
 

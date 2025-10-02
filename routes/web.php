@@ -3,6 +3,7 @@
 use App\Models\Book;
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\Lesson;
 use App\Models\Post;
 use App\Models\Profile;
 use App\Models\Tag;
@@ -33,7 +34,7 @@ Route::get('/test', function(){
 
     /*$book = Book::find(1);
     return $book;*/
-    $post = Post::find(1);
+    //$post = Post::find(1);
     //$post->coments()->create(['body' => 'Este es el comentario 3 del post']);
     //return $post->coments;
 
@@ -41,8 +42,31 @@ Route::get('/test', function(){
         echo $coment->body."<br>";
     }*/
     //$post->tags()->attach([1,2,2]);
-    $book = Book::find(1);
+    /*$book = Book::find(1);
     $book->tags()->sync([4,5]);
-    return $book->tags;
+    return $book->tags;*/
 
+    /*$user = User::create([
+        'name' => 'John Doe',
+        'email' => 'john@example.com',
+        'password' => bcrypt('password'),
+    ]);*/
+    /*$user = User::find(11);
+    $user->profile()->create([  Insercion mediante relacion 1 a 1
+        'job' => 'Developer',
+        'phone' => '123456789',
+        'website' => 'https://example.com',
+    ]);
+
+    return $user->profile;*/
+
+    /* Insercion mediante relacion 1 a muchos polimorfica
+    $lesson = Lesson::find(2);
+    $lesson->comments()->create(['body' => 'Este es el comentario 1 de la leccion 2']);
+    return $lesson->comments;*/
+
+    $post = Post::find(2);
+    $post->tags()->sync([1,2,3]);
+
+    return $post->tags;
 });
